@@ -24,6 +24,7 @@ typedef unsigned int IggPackedColor;
 typedef void *IggPayload;
 typedef void *IggTableSortSpecs;
 typedef void *IggViewport;
+typedef unsigned int IggID;
 
 typedef struct tagIggVec2
 {

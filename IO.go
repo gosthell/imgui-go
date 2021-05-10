@@ -257,6 +257,8 @@ const (
 	// cursor. You may want to honor requests from imgui by reading GetMouseCursor() yourself instead.
 	ConfigFlagsNoMouseCursorChange ConfigFlags = 1 << 5
 
+	ConfigFlagsEnableDocking ConfigFlags = 1 << 6
+
 	// User storage (to allow your back-end/engine to communicate to code that may be shared between multiple projects.
 	// Those flags are not used by core Dear ImGui).
 
