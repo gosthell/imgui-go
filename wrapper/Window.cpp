@@ -37,6 +37,11 @@ void iggEndChild(void)
    ImGui::EndChild();
 }
 
+float iggWindowDpiScale(void)
+{
+   return ImGui::GetWindowDpiScale();
+}
+
 void iggWindowPos(IggVec2 *pos)
 {
    exportValue(*pos, ImGui::GetWindowPos());

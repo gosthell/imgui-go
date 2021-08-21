@@ -14,6 +14,7 @@ extern void iggEnd(void);
 extern IggBool iggBeginChild(char const *id, IggVec2 const *size, IggBool border, int flags);
 extern void iggEndChild(void);
 
+extern float iggWindowDpiScale();
 extern void iggWindowPos(IggVec2 *pos);
 extern void iggWindowSize(IggVec2 *size);
 extern float iggWindowWidth(void);

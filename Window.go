@@ -126,6 +126,11 @@ func EndChild() {
 	C.iggEndChild()
 }
 
+// WindowDpiScale returns the current window dpi scale.
+func WindowDpiScale() float32 {
+	return float32(C.iggWindowDpiScale())
+}
+
 // WindowPos returns the current window position in screen space.
 // This is useful if you want to do your own drawing via the DrawList API.
 func WindowPos() Vec2 {
