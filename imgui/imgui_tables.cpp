@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // dear imgui, v1.84
+=======
+// dear imgui, v1.84 WIP
+>>>>>>> feat: docking
 // (tables and columns code)
 
 /*
