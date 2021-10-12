@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // dear imgui, v1.85 WIP
-=======
-// dear imgui, v1.84 WIP
->>>>>>> origin/docking
 // (drawing and font code)
 
 /*
@@ -2008,11 +2004,7 @@ void    ImFontAtlas::ClearInputData()
     ConfigData.clear();
     CustomRects.clear();
     PackIdMouseCursors = PackIdLines = -1;
-<<<<<<< HEAD
     // Important: we leave TexReady untouched
-=======
-    TexReady = false;
->>>>>>> origin/docking
 }
 
 void    ImFontAtlas::ClearTexData()

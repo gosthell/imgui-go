@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // dear imgui, v1.85 WIP
-=======
-// dear imgui, v1.84 WIP
->>>>>>> origin/docking
 // (demo code)
 
 // Help:
@@ -1623,14 +1619,8 @@ static void ShowDemoWindowWidgets()
     }
 
     // Plot/Graph widgets are not very good.
-<<<<<<< HEAD
     // Consider using a third-party library such as ImPlot: https://github.com/epezent/implot
     // (see others https://github.com/ocornut/imgui/wiki/Useful-Extensions)
-=======
-    // Consider writing your own, or using a third-party one, see:
-    // - ImPlot https://github.com/epezent/implot
-    // - others https://github.com/ocornut/imgui/wiki/Useful-Extensions
->>>>>>> origin/docking
     if (ImGui::TreeNode("Plots Widgets"))
     {
         static bool animate = true;
