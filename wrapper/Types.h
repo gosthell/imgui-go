@@ -21,12 +21,14 @@ typedef void *IggFont;
 typedef void *IggFontGlyph;
 typedef void *IggGlyphRanges;
 typedef void *IggGuiStyle;
+typedef void *IggDockNode;
 typedef void *IggInputTextCallbackData;
 typedef void *IggIO;
 typedef unsigned int IggPackedColor;
 typedef void *IggPayload;
 typedef void *IggTableSortSpecs;
 typedef void *IggViewport;
+typedef unsigned int IggID;
 
 typedef struct tagIggVec2
 {

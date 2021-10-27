@@ -301,6 +301,7 @@ const (
 	ConfigFlagsIsSRGB ConfigFlags = 1 << 20
 	// ConfigFlagsIsTouchScreen application is using a touch screen instead of a mouse.
 	ConfigFlagsIsTouchScreen ConfigFlags = 1 << 21
+	ConfigFlagsEnableDocking ConfigFlags = 1 << 6
 )
 
 // SetConfigFlags sets the gamepad/keyboard navigation options, etc.
