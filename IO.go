@@ -168,51 +168,131 @@ func (io IO) SetFontGlobalScale(value float32) {
 	C.iggIoSetFontGlobalScale(io.handle, C.float(value))
 }
 
-// KeyPress sets the KeysDown flag.
-func (io IO) KeyPress(key int) {
-	C.iggIoKeyPress(io.handle, C.int(key))
-}
-
-// KeyRelease clears the KeysDown flag.
-func (io IO) KeyRelease(key int) {
-	C.iggIoKeyRelease(io.handle, C.int(key))
-}
-
 // Constants to fill IO.KeyMap() lookup with indices into the IO.KeysDown[512] array.
 // The mapped indices are then the ones reported to IO.KeyPress() and IO.KeyRelease().
 const (
-	KeyTab         = 0
-	KeyLeftArrow   = 1
-	KeyRightArrow  = 2
-	KeyUpArrow     = 3
-	KeyDownArrow   = 4
-	KeyPageUp      = 5
-	KeyPageDown    = 6
-	KeyHome        = 7
-	KeyEnd         = 8
-	KeyInsert      = 9
-	KeyDelete      = 10
-	KeyBackspace   = 11
-	KeySpace       = 12
-	KeyEnter       = 13
-	KeyEscape      = 14
-	KeyKeyPadEnter = 15
-	KeyA           = 16 // for text edit CTRL+A: select all
-	KeyC           = 17 // for text edit CTRL+C: copy
-	KeyV           = 18 // for text edit CTRL+V: paste
-	KeyX           = 19 // for text edit CTRL+X: cut
-	KeyY           = 20 // for text edit CTRL+Y: redo
-	KeyZ           = 21 // for text edit CTRL+Z: undo
+	KeyTab          = C.IggKey_Tab
+	KeyLeft         = C.IggKey_LeftArrow
+	KeyRight        = C.IggKey_RightArrow
+	KeyUp           = C.IggKey_UpArrow
+	KeyDown         = C.IggKey_DownArrow
+	KeyPageUp       = C.IggKey_PageUp
+	KeyPageDown     = C.IggKey_PageDown
+	KeyHome         = C.IggKey_Home
+	KeyEnd          = C.IggKey_End
+	KeyInsert       = C.IggKey_Insert
+	KeyDelete       = C.IggKey_Delete
+	KeyBackspace    = C.IggKey_Backspace
+	KeySpace        = C.IggKey_Space
+	KeyEnter        = C.IggKey_Enter
+	KeyEscape       = C.IggKey_Escape
+	KeyApostrophe   = C.IggKey_Apostrophe
+	KeyComma        = C.IggKey_Comma
+	KeyMinus        = C.IggKey_Minus
+	KeyPeriod       = C.IggKey_Period
+	KeySlash        = C.IggKey_Slash
+	KeySemicolon    = C.IggKey_Semicolon
+	KeyEqual        = C.IggKey_Equal
+	KeyLeftBracket  = C.IggKey_LeftBracket
+	KeyBackslash    = C.IggKey_Backslash
+	KeyRightBracket = C.IggKey_RightBracket
+	KeyGraveAccent  = C.IggKey_GraveAccent
+	KeyCapsLock     = C.IggKey_CapsLock
+	KeyScrollLock   = C.IggKey_ScrollLock
+	KeyNumLock      = C.IggKey_NumLock
+	KeyPrintScreen  = C.IggKey_PrintScreen
+	KeyPause        = C.IggKey_Pause
+	KeyKP0          = C.IggKey_Keypad0
+	KeyKP1          = C.IggKey_Keypad1
+	KeyKP2          = C.IggKey_Keypad2
+	KeyKP3          = C.IggKey_Keypad3
+	KeyKP4          = C.IggKey_Keypad4
+	KeyKP5          = C.IggKey_Keypad5
+	KeyKP6          = C.IggKey_Keypad6
+	KeyKP7          = C.IggKey_Keypad7
+	KeyKP8          = C.IggKey_Keypad8
+	KeyKP9          = C.IggKey_Keypad9
+	KeyKPDecimal    = C.IggKey_KeypadDecimal
+	KeyKPDivide     = C.IggKey_KeypadDivide
+	KeyKPMultiply   = C.IggKey_KeypadMultiply
+	KeyKPSubstract  = C.IggKey_KeypadSubtract
+	KeyKPAdd        = C.IggKey_KeypadAdd
+	KeyKPEnter      = C.IggKey_KeypadEnter
+	KeyKPEqual      = C.IggKey_KeypadEqual
+	KeyLeftShift    = C.IggKey_LeftShift
+	KeyLeftControl  = C.IggKey_LeftCtrl
+	KeyLeftAlt      = C.IggKey_LeftAlt
+	KeyLeftSupper   = C.IggKey_LeftSuper
+	KeyRightShift   = C.IggKey_RightShift
+	KeyRightControl = C.IggKey_RightCtrl
+	KeyRightAlt     = C.IggKey_RightAlt
+	KeyRightSuper   = C.IggKey_RightSuper
+	KeyMenu         = C.IggKey_Menu
+	Key0            = C.IggKey_0
+	Key1            = C.IggKey_1
+	Key2            = C.IggKey_2
+	Key3            = C.IggKey_3
+	Key4            = C.IggKey_4
+	Key5            = C.IggKey_5
+	Key6            = C.IggKey_6
+	Key7            = C.IggKey_7
+	Key8            = C.IggKey_8
+	Key9            = C.IggKey_9
+	KeyA            = C.IggKey_A
+	KeyB            = C.IggKey_B
+	KeyC            = C.IggKey_C
+	KeyD            = C.IggKey_D
+	KeyE            = C.IggKey_E
+	KeyF            = C.IggKey_F
+	KeyG            = C.IggKey_G
+	KeyH            = C.IggKey_H
+	KeyI            = C.IggKey_I
+	KeyJ            = C.IggKey_J
+	KeyK            = C.IggKey_K
+	KeyL            = C.IggKey_L
+	KeyM            = C.IggKey_M
+	KeyN            = C.IggKey_N
+	KeyO            = C.IggKey_O
+	KeyP            = C.IggKey_P
+	KeyQ            = C.IggKey_Q
+	KeyR            = C.IggKey_R
+	KeyS            = C.IggKey_S
+	KeyT            = C.IggKey_T
+	KeyU            = C.IggKey_U
+	KeyV            = C.IggKey_V
+	KeyW            = C.IggKey_W
+	KeyX            = C.IggKey_X
+	KeyY            = C.IggKey_Y
+	KeyZ            = C.IggKey_Z
+	KeyF1           = C.IggKey_F1
+	KeyF2           = C.IggKey_F2
+	KeyF3           = C.IggKey_F3
+	KeyF4           = C.IggKey_F4
+	KeyF5           = C.IggKey_F5
+	KeyF6           = C.IggKey_F6
+	KeyF7           = C.IggKey_F7
+	KeyF8           = C.IggKey_F8
+	KeyF9           = C.IggKey_F9
+	KeyF10          = C.IggKey_F10
+	KeyF11          = C.IggKey_F11
+	KeyF12          = C.IggKey_F12
 )
 
-// KeyMap maps a key into the KeysDown array which represents your "native" keyboard state.
-func (io IO) KeyMap(imguiKey int, nativeKey int) {
-	C.iggIoKeyMap(io.handle, C.int(imguiKey), C.int(nativeKey))
+func (io IO) AddKeyEvent(imguiKey int, down bool) {
+	var downArg C.IggBool
+	if down {
+		downArg = 1
+	}
+	C.iggIoAddKeyEvent(io.handle, C.int(imguiKey), downArg)
 }
 
 // KeyCtrl sets the keyboard modifier control pressed.
-func (io IO) KeyCtrl(leftCtrl int, rightCtrl int) {
-	C.iggIoKeyCtrl(io.handle, C.int(leftCtrl), C.int(rightCtrl))
+func (io IO) KeyCtrl(down bool) {
+	var downArg C.IggBool
+	if down {
+		downArg = 1
+	}
+	C.iggIoKeyCtrl(io.handle, downArg)
 }
 
 // KeyCtrlPressed get the keyboard modifier control pressed.
@@ -221,8 +301,12 @@ func (io IO) KeyCtrlPressed() bool {
 }
 
 // KeyShift sets the keyboard modifier shift pressed.
-func (io IO) KeyShift(leftShift int, rightShift int) {
-	C.iggIoKeyShift(io.handle, C.int(leftShift), C.int(rightShift))
+func (io IO) KeyShift(down bool) {
+	var downArg C.IggBool
+	if down {
+		downArg = 1
+	}
+	C.iggIoKeyShift(io.handle, downArg)
 }
 
 // KeyShiftPressed get the keyboard modifier shif pressed.
@@ -231,8 +315,12 @@ func (io IO) KeyShiftPressed() bool {
 }
 
 // KeyAlt sets the keyboard modifier alt pressed.
-func (io IO) KeyAlt(leftAlt int, rightAlt int) {
-	C.iggIoKeyAlt(io.handle, C.int(leftAlt), C.int(rightAlt))
+func (io IO) KeyAlt(down bool) {
+	var downArg C.IggBool
+	if down {
+		downArg = 1
+	}
+	C.iggIoKeyAlt(io.handle, downArg)
 }
 
 // KeyAltPressed get the keyboard modifier alt pressed.
@@ -241,8 +329,12 @@ func (io IO) KeyAltPressed() bool {
 }
 
 // KeySuper sets the keyboard modifier super pressed.
-func (io IO) KeySuper(leftSuper int, rightSuper int) {
-	C.iggIoKeySuper(io.handle, C.int(leftSuper), C.int(rightSuper))
+func (io IO) KeySuper(down bool) {
+	var downArg C.IggBool
+	if down {
+		downArg = 1
+	}
+	C.iggIoKeySuper(io.handle, downArg)
 }
 
 // KeySuperPressed get the keyboard modifier super pressed.

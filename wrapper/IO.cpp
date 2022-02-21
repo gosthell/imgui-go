@@ -144,69 +144,57 @@ void iggIoSetFontGlobalScale(IggIO handle, float value)
    io->FontGlobalScale = value;
 }
 
-void iggIoKeyPress(IggIO handle, int key)
+void iggIoAddKeyEvent(IggIO handle, int key, IggBool down)
 {
    ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle);
-   io.KeysDown[key] = true;
+   io.AddKeyEvent(key, down);
 }
 
-void iggIoKeyRelease(IggIO handle, int key)
+void iggIoKeyCtrl(IggIO handle, IggBool down)
 {
    ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle);
-   io.KeysDown[key] = false;
-}
-
-void iggIoKeyMap(IggIO handle, int imguiKey, int nativeKey)
-{
-   ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle);
-   io.KeyMap[imguiKey] = nativeKey;
-}
-
-void iggIoKeyCtrl(IggIO handle, int leftCtrl, int rightCtrl)
-{
-   ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle);
-   io.KeyCtrl = io.KeysDown[leftCtrl] || io.KeysDown[rightCtrl];
+   io.KeyCtrl = down;
 }
 
 IggBool iggIoKeyCtrlPressed(IggIO handle)
 {
-   ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle); 
+   ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle);
    return io.KeyCtrl ? 1 : 0;
 }
 
-void iggIoKeyShift(IggIO handle, int leftShift, int rightShift)
+void iggIoKeyShift(IggIO handle, IggBool down)
 {
    ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle);
-   io.KeyShift = io.KeysDown[leftShift] || io.KeysDown[rightShift];
+   io.KeyShift = down;
 }
 
 IggBool iggIoKeyShiftPressed(IggIO handle)
 {
-   ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle); 
+   ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle);
    return io.KeyShift ? 1 : 0;
 }
 
-void iggIoKeyAlt(IggIO handle, int leftAlt, int rightAlt)
+void iggIoKeyAlt(IggIO handle, IggBool down)
 {
    ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle);
-   io.KeyAlt = io.KeysDown[leftAlt] || io.KeysDown[rightAlt];
+   io.KeyAlt = down;
 }
 
 IggBool iggIoKeyAltPressed(IggIO handle)
 {
-   ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle); 
+   ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle);
    return io.KeyAlt ? 1 : 0;
 }
 
-void iggIoKeySuper(IggIO handle, int leftSuper, int rightSuper)
+void iggIoKeySuper(IggIO handle, IggBool down)
 {
    ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle);
-   io.KeySuper = io.KeysDown[leftSuper] || io.KeysDown[rightSuper];
+   io.KeySuper = down;
 }
 
 IggBool iggIoKeySuperPressed(IggIO handle)
 {
-   ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle); 
+   ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle);
    return io.KeySuper? 1 : 0;
 }
 
