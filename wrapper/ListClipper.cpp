@@ -42,8 +42,6 @@ static void importValue(ImGuiListClipper &out, IggListClipper const &in)
    out.DisplayEnd = in.DisplayEnd;
    out.ItemsCount = in.ItemsCount;
 
-   out.StepNo = in.StepNo;
-   out.ItemsFrozen = in.ItemsFrozen;
    out.ItemsHeight = in.ItemsHeight;
    out.StartPosY = in.StartPosY;
 }
@@ -54,8 +52,6 @@ static void exportValue(IggListClipper &out, ImGuiListClipper const &in)
    out.DisplayEnd = in.DisplayEnd;
    out.ItemsCount = in.ItemsCount;
 
-   out.StepNo = in.StepNo;
-   out.ItemsFrozen = in.ItemsFrozen;
    out.ItemsHeight = in.ItemsHeight;
    out.StartPosY = in.StartPosY;
 }

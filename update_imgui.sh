@@ -24,12 +24,14 @@ rm -rf $DEST/*
 
 echo "Copying files"
 # Copy core files
-cp $TMP_IMGUI/*.{h,cpp} $DEST/
+cp $TMP_IMGUI/*.h $DEST/
+cp $TMP_IMGUI/*.cpp $DEST/
 echo "package cgo${DEST}" > $DEST/govendorkeep.go
 
 # Copy freetype
 mkdir -p $DEST/misc/freetype
-cp $TMP_IMGUI/misc/freetype/*.{h,cpp} $DEST/misc/freetype
+cp $TMP_IMGUI/misc/freetype/*.h $DEST/misc/freetype
+cp $TMP_IMGUI/misc/freetype/*.cpp $DEST/misc/freetype
 echo "package cgofreetype" > $DEST/misc/freetype/govendorkeep.go
 
 # Copy license

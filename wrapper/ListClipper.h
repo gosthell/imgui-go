@@ -12,8 +12,6 @@ typedef struct tagIggListClipper
    int DisplayEnd;
    int ItemsCount;
 
-   int StepNo;
-   int ItemsFrozen;
    float ItemsHeight;
    float StartPosY;
 } IggListClipper;
