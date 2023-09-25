@@ -335,14 +335,14 @@ func PopTextWrapPos() {
 	C.iggPopTextWrapPos()
 }
 
-// PushAllowKeyboardFocus allow the next window to take focus of the keyboard.
-func PushAllowKeyboardFocus(allow bool) {
-	C.iggPushAllowKeyboardFocus(castBool(allow))
+// PushTabStop allow the next window to take focus of the keyboard.
+func PushTabStop(allow bool) {
+	C.iggPushTabStop(castBool(allow))
 }
 
-//PopAllowKeyboardFocus pops most recent allow keyboard focus setting.
-func PopAllowKeyboardFocus() {
-	C.iggPopAllowKeyboardFocus()
+// PopTabStop pops most recent allow keyboard focus setting.
+func PopTabStop() {
+	C.iggPopTabStop()
 }
 
 // PushButtonRepeat enables button to repeat press if held.

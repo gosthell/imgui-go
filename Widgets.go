@@ -96,18 +96,20 @@ func Image(id TextureID, size Vec2) {
 // ImageButtonV adds a button with an image, based on given texture ID.
 // Refer to TextureID what this represents and how it is drawn.
 // <0 framePadding uses default frame padding settings. 0 for no padding.
-func ImageButtonV(id TextureID, size Vec2, uv0, uv1 Vec2, framePadding int, bgCol Vec4, tintCol Vec4) bool {
+func ImageButtonV(id string, textureId TextureID, size Vec2, uv0, uv1 Vec2, bgCol Vec4, tintCol Vec4) bool {
+	idArg, idFin := wrapString(id)
+	defer idFin()
 	sizeArg, _ := size.wrapped()
 	uv0Arg, _ := uv0.wrapped()
 	uv1Arg, _ := uv1.wrapped()
 	bgColArg, _ := bgCol.wrapped()
 	tintColArg, _ := tintCol.wrapped()
-	return C.iggImageButton(id.handle(), sizeArg, uv0Arg, uv1Arg, C.int(framePadding), bgColArg, tintColArg) != 0
+	return C.iggImageButton(idArg, textureId.handle(), sizeArg, uv0Arg, uv1Arg, bgColArg, tintColArg) != 0
 }
 
-// ImageButton calls ImageButtonV(id, size, Vec2{0,0}, Vec2{1,1}, -1, Vec4{0,0,0,0}, Vec4{1,1,1,1}).
-func ImageButton(id TextureID, size Vec2) bool {
-	return ImageButtonV(id, size, Vec2{X: 0, Y: 0}, Vec2{X: 1, Y: 1}, -1, Vec4{X: 0, Y: 0, Z: 0, W: 0}, Vec4{X: 1, Y: 1, Z: 1, W: 1})
+// ImageButton calls ImageButtonV(id, textureId, size, Vec2{0,0}, Vec2{1,1}, Vec4{0,0,0,0}, Vec4{1,1,1,1}).
+func ImageButton(id string, textureId TextureID, size Vec2) bool {
+	return ImageButtonV(id, textureId, size, Vec2{X: 0, Y: 0}, Vec2{X: 1, Y: 1}, Vec4{X: 0, Y: 0, Z: 0, W: 0}, Vec4{X: 1, Y: 1, Z: 1, W: 1})
 }
 
 // Checkbox creates a checkbox in the selected state.
@@ -132,11 +134,10 @@ func RadioButton(id string, active bool) bool {
 // The radio button will be set if v == button. Useful for groups of radio
 // buttons. In the example below, "radio b" will be selected.
 //
-//		v := 1
-//		imgui.RadioButtonInt("radio a", &v, 0)
-//		imgui.RadioButtonInt("radio b", &v, 1)
-//		imgui.RadioButtonInt("radio c", &v, 2)
-//
+//	v := 1
+//	imgui.RadioButtonInt("radio a", &v, 0)
+//	imgui.RadioButtonInt("radio b", &v, 1)
+//	imgui.RadioButtonInt("radio c", &v, 2)
 func RadioButtonInt(id string, v *int, button int) bool {
 	idArg, idFin := wrapString(id)
 	defer idFin()

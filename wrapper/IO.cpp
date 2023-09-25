@@ -147,7 +147,7 @@ void iggIoSetFontGlobalScale(IggIO handle, float value)
 void iggIoAddKeyEvent(IggIO handle, int key, IggBool down)
 {
    ImGuiIO &io = *reinterpret_cast<ImGuiIO *>(handle);
-   io.AddKeyEvent(key, down);
+   io.AddKeyEvent(static_cast<ImGuiKey>(key), down);
 }
 
 void iggIoKeyCtrl(IggIO handle, IggBool down)

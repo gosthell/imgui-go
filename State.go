@@ -76,11 +76,11 @@ func IsItemVisible() bool {
 	return C.iggIsItemVisible() != 0
 }
 
-// SetItemAllowOverlap allows last item to be overlapped by a subsequent item.
+// SetNextItemAllowOverlap allows next item to be overlapped by a subsequent item.
 // Both may be activated during the same frame before the later one takes priority.
 // This is sometimes useful with invisible buttons, selectables, etc. to catch unused area.
-func SetItemAllowOverlap() {
-	C.iggSetItemAllowOverlap()
+func SetNextItemAllowOverlap() {
+	C.iggSetNextItemAllowOverlap()
 }
 
 // IsWindowAppearing returns whether the current window is appearing.

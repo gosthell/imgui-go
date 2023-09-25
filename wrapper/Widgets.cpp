@@ -37,9 +37,9 @@ void iggImage(IggTextureID textureID,
    ImGui::Image(reinterpret_cast<ImTextureID>(textureID), *sizeArg, *uv0Arg, *uv1Arg, *tintColArg, *borderColArg);
 }
 
-IggBool iggImageButton(IggTextureID textureID,
+IggBool iggImageButton(char const *label, IggTextureID textureID,
    IggVec2 const *size, IggVec2 const *uv0, IggVec2 const *uv1,
-   int framePadding, IggVec4 const *bgCol,
+   IggVec4 const *bgCol,
    IggVec4 const *tintCol)
 {
    Vec2Wrapper sizeArg(size);
@@ -47,7 +47,7 @@ IggBool iggImageButton(IggTextureID textureID,
    Vec2Wrapper uv1Arg(uv1);
    Vec4Wrapper bgColArg(bgCol);
    Vec4Wrapper tintColArg(tintCol);
-   return ImGui::ImageButton(reinterpret_cast<ImTextureID>(textureID), *sizeArg, *uv0Arg, *uv1Arg, framePadding, *bgColArg, *tintColArg) ? 1 : 0;
+   return ImGui::ImageButton(label, reinterpret_cast<ImTextureID>(textureID), *sizeArg, *uv0Arg, *uv1Arg, *bgColArg, *tintColArg) ? 1 : 0;
 }
 
 IggBool iggCheckbox(char const *label, IggBool *selected)

@@ -161,14 +161,14 @@ void iggPopTextWrapPos(void)
    ImGui::PopTextWrapPos();
 }
 
-void iggPushAllowKeyboardFocus(IggBool allow)
+void iggPushTabStop(IggBool allow)
 {
-   ImGui::PushAllowKeyboardFocus(allow);
+   ImGui::PushTabStop(allow);
 }
 
-void iggPopAllowKeyboardFocus()
+void iggPopTabStop()
 {
-   ImGui::PopAllowKeyboardFocus();
+   ImGui::PopTabStop();
 }
 
 void iggPushButtonRepeat(IggBool repeat)
