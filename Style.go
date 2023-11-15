@@ -53,10 +53,20 @@ const (
 	StyleVarGrabRounding
 	// StyleVarTabRounding is a float.
 	StyleVarTabRounding
+	// StyleVarTabBorderSize is a float.
+	StyleVarTabBorderSize
 	// StyleVarButtonTextAlign is a Vec2.
 	StyleVarButtonTextAlign
 	// StyleVarSelectableTextAlign is a Vec2.
 	StyleVarSelectableTextAlign
+	// StyleVarSeparatorTextBorderSize is a float.
+	StyleVarSeparatorTextBorderSize
+	// StyleVarSeparatorTextAlign is a Vec2.
+	StyleVarSeparatorTextAlign
+	// StyleVarSeparatorTextPadding is a Vec2.
+	StyleVarSeparatorTextPadding
+	// StyleVarDockingSeparatorSize is a float
+	StyleVarDockingSeparatorSize
 )
 
 // StyleColorID identifies a color in the UI style.
