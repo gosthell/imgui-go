@@ -72,12 +72,6 @@ func (io IO) MetricsActiveWindows() int {
 	return int(C.iggMetricsActiveWindows(io.handle))
 }
 
-// MetricsActiveAllocations returns number of active allocations, updated by MemAlloc/MemFree
-// based on current context. May be off if you have multiple imgui contexts.
-func (io IO) MetricsActiveAllocations() int {
-	return int(C.iggMetricsActiveAllocations(io.handle))
-}
-
 // MousePosition returns the mouse position.
 func (io IO) MousePosition() Vec2 {
 	var value Vec2

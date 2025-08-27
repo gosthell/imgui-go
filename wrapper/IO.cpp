@@ -64,12 +64,6 @@ extern int iggMetricsActiveWindows(IggIO handle)
    return io->MetricsActiveWindows;
 }
 
-extern int iggMetricsActiveAllocations(IggIO handle)
-{
-   ImGuiIO *io = reinterpret_cast<ImGuiIO *>(handle);
-   return io->MetricsActiveAllocations;
-}
-
 extern void iggMouseDelta(IggIO handle, IggVec2 *value)
 {
    ImGuiIO *io = reinterpret_cast<ImGuiIO *>(handle);
